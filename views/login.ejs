@@ -26,10 +26,15 @@
     <li class="nav-item">
       <a class="nav-link" href="/activity">Transactions</a>
     </li>
+    <% if (status) { %>
+      <li class="nav-item">
+        <a class="nav-link" href="/user/logout">Logout</a>
+      </li>
+      <% } %>
   </ul>
 
   <div>
-    <div style="float: left; width: 50%"></div>
+    <div style=" float: left; width: 40%;"></div>
     <div style="float: right; width: 40%; margin: 40px;">
       <form method="post" action="/user/login" onsubmit="return loginValidate();">
         <div class="form-group">

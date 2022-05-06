@@ -8,11 +8,11 @@ router.use(checkAuth);
 /* GET home page. */
 router.get('/', async (req, res, next) => {
   const data = await Activity.find({ email: req.session.email });
-  res.render('activity', { title: 'Financial Tracker', data: data });
+  res.render('activity', { title: 'Financial Tracker', data: data, status: req.session.logined });
 });
 
 router.get('/add', (req, res, next) => {
-  res.render('add', { title: 'Financial Tracker' });
+  res.render('add', { title: 'Financial Tracker', status: req.session.logined });
 });
 
 router.post('/add', async (req, res, next) => {
@@ -28,26 +28,6 @@ router.post('/add', async (req, res, next) => {
   });
 });
 
-
-
-const barAggr = [
-  {
-    '$group': {
-      '_id': {
-        '$substr': [
-          '$date', 0, 7
-        ]
-      },
-      'total': {
-        '$sum': '$amount'
-      }
-    }
-  }, {
-    '$sort': {
-      '_id': 1
-    }
-  }
-]
 
 router.get('/show', async (req, res, next) => {
   const colors = ['red', 'yellow', 'lime', 'cyan', 'Magenta', 'black',
@@ -101,7 +81,7 @@ router.get('/show', async (req, res, next) => {
   const barInnerData = barTmp.map(x => x.total);
   const barData = { labels: barLabels, datasets: [{ data: barInnerData, backgroundColor: barColors, label: 'Monthly spending', }] };
 
-  res.render('show', { title: 'Financial Tracker', pieData: pieData, barData: barData });
+  res.render('show', { title: 'Financial Tracker', pieData: pieData, barData: barData, status: req.session.logined });
 })
 
 module.exports = router;

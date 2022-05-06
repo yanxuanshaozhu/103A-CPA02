@@ -31,41 +31,45 @@
     <div>
         <div style="float: left; width: 40%;">
             <div class="text-center p-3">Show expenditure composition</div>
-            <canvas id="pieChart" height="450"></canvas>
-            <script>
-                let pieData = JSON.parse(`<%- JSON.stringify(pieData) %>`);
-                new Chart(document.getElementById("pieChart"), {
-                    type: 'doughnut',
-                    data: pieData,
-                    options: {
-                        plugins: {
-                            title: {
-                                display: true,
-                                text: pieData.datasets[0].label
+            <% if (pieData.labels.length> 0) {%>
+                <canvas id="pieChart" height="450"></canvas>
+                <script>
+                    let pieData = JSON.parse(`<%- JSON.stringify(pieData) %>`);
+                    new Chart(document.getElementById("pieChart"), {
+                        type: 'doughnut',
+                        data: pieData,
+                        options: {
+                            plugins: {
+                                title: {
+                                    display: true,
+                                    text: pieData.datasets[0].label
+                                }
                             }
                         }
-                    }
-                });
-            </script>
+                    });
+                </script>
+                <% } %>
         </div>
         <div style="float: right; width: 40%;">
             <div class="text-center p-3">Show monthly spending</div>
-            <canvas id="barChart" height="350"></canvas>
-            <script>
-                let barData = JSON.parse(`<%- JSON.stringify(barData) %>`);
-                new Chart(document.getElementById("barChart"), {
-                    type: 'bar',
-                    data: barData,
-                    options: {
-                        plugins: {
-                            title: {
-                                display: true,
-                                text: pieData.datasets[0].label
+            <% if (barData.labels.length> 0 ) {%>
+                <canvas id="barChart" height="350"></canvas>
+                <script>
+                    let barData = JSON.parse(`<%- JSON.stringify(barData) %>`);
+                    new Chart(document.getElementById("barChart"), {
+                        type: 'bar',
+                        data: barData,
+                        options: {
+                            plugins: {
+                                title: {
+                                    display: true,
+                                    text: pieData.datasets[0].label
+                                }
                             }
                         }
-                    }
-                });
-            </script>
+                    });
+                </script>
+                <% } %>
         </div>
     </div>
 

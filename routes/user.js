@@ -5,15 +5,15 @@ const User = require('../models/User');
 
 /* GET users listing. */
 router.get('/', (req, res, next) => {
-  res.render('login', { title: 'Login', msg: "" });
+  res.render('login', { title: 'Login', msg: "", status: req.session.logined });
 });
 
 router.get('/login', (req, res, next) => {
-  res.render('login', { title: 'Login', msg: "" });
+  res.render('login', { title: 'Login', msg: "", status: req.session.logined });
 });
 
 router.get('/register', (req, res, next) => {
-  res.render('register', { title: 'Register', msg: "" });
+  res.render('register', { title: 'Register', msg: "", status: req.session.logined });
 });
 
 router.post('/login', (req, res, next) => {
@@ -48,4 +48,11 @@ router.post('/register', (req, res, next) => {
     }
   });
 });
+
+router.get('/logout', (req, res, next) => {
+  req.session.destroy();
+  res.redirect('/');
+});
+
+
 module.exports = router;

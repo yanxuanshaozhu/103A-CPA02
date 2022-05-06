@@ -24,6 +24,11 @@
     <li class="nav-item">
       <a class="nav-link" href="/activity">Transactions</a>
     </li>
+    <% if (status) { %>
+      <li class="nav-item">
+        <a class="nav-link" href="/user/logout">Logout</a>
+      </li>
+      <% } %>
   </ul>
   <p class="text-center h-3 p-3">Welcome to the <%= title %>, this is an web application that allow users to track their
       spending activities.
