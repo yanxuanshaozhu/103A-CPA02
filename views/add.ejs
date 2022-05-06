@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        Add Activity
+    </title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script type="text/javascript" src="/javascripts/uservalidate.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/momentjs/2.14.1/moment.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    </script>
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+    <ul class="nav nav-pills justify-content-center" style="background-color: rgba(0, 0, 0, 0.2);">
+        <li class="nav-item">
+            <a class="nav-link" href="/">Main</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/about">About</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/user">Register/Login</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/activity">Track</a>
+        </li>
+    </ul>
+
+    <div>
+        <div style="float: left; width: 50%"></div>
+        <div style="float: right; width: 40%; margin: 40px;">
+            <form method="post" action="/activity/add">
+                <div class="form-group">
+                    <label class="control-label">Transaction date</label>
+                    <div class='input-group date' id='datetimepicker1'>
+                        <input type='text' class="form-control" id="date" name="date" />
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="location">Transaction location</label>
+                    <input type="text" class="form-control" id="location" name="location"
+                        placeholder="Enter transaction location">
+                </div>
+                <div class="form-group">
+                    <label for="category">Transaction category</label>
+                    <select class="form-control" id="category" name="category">
+                        <option>Housing</option>
+                        <option>Transportation</option>
+                        <option>Food</option>
+                        <option>Utilities</option>
+                        <option>Clothing</option>
+                        <option>Healthcare</option>
+                        <option>Education</option>
+                        <option>Entertainment</option>
+                        <option>Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="location">Transaction amount</label>
+                    <input type="text" class="form-control" id="amount" name="amount"
+                        placeholder="Enter transaction amount">
+                </div>
+                <div class="form-group">
+                    <label for="location">Transaction description</label>
+                    <input type="text" class="form-control" id="description" name="description"
+                        placeholder="Enter transaction description">
+                </div>
+                <div class="d-flex justify-content-center">
+                    <button type="submit" class="btn btn-primary mt-1">Add transaction</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <footer class="bg-light text-center text-lg-start mt-auto">
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+            © 2022 Copyright:
+            <a class="text-dark" href="https://github.com/yanxuanshaozhu">yanxuanshaozhu</a>
+        </div>
+    </footer>
+</body>
+<script>
+    $(function () {
+        $('#datetimepicker1').datetimepicker();
+    });
+</script>
+
+</html>
