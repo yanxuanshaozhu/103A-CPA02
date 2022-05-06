@@ -1,6 +1,7 @@
 const createError = require('http-errors');
 const express = require('express');
 const path = require('path');
+const session = require("express-session"); // to handle sessions using cookies
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const http = require("http");
@@ -21,6 +22,13 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(session({
+  secret: '12345',
+  name: 'financialTracker',  
+  cookie: {maxAge: 100000000 },  
+  resave: false,
+  saveUninitialized: true,
+}));
 
 
 const mongoose = require( 'mongoose' );
@@ -31,10 +39,13 @@ const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {console.log("we are connected!!!")});
 
+
+
 app.use('/', indexRouter);
 app.use('/user', usersRouter);
 app.use('/about', aboutRouter);
 app.use('/activity', activityRouter);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

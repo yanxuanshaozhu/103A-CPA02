@@ -11,8 +11,8 @@ var activitySchema = Schema({
             'Clothing', 'Healthcare', 'Education', 'Entertainment', 'Other']
     },
     amount: Number,
-    description: String
-
+    description: String,
+    email: String
 });
 
 
