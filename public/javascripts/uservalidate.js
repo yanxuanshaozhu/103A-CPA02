@@ -15,8 +15,10 @@ const emailValidate = () => {
 const usernameValidate = () => {
     let username = document.getElementById('username').value;
     let usernameMsg = document.getElementById('usernameMsg');
-    if (username.length === 0) {
-        usernameMsg.innerText = "Username cannot be empty";
+    let cond1 = username.length >= 6 && username.length <= 12;
+    let cond2 = /[a-zA-Z]/.test(username.charAt(0));
+    if (!cond1 || !cond2) {
+        usernameMsg.innerText = "Username should have length between 6 and 12 (inclusive), and start with a letter";
         usernameMsg.style.color = "red";
         return false;
     } else {

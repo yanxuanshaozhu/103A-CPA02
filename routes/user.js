@@ -24,8 +24,9 @@ router.post('/login', (req, res, next) => {
       req.session.logined = true;
       res.redirect('/activity');
     } else {
-      let msg = "User not found in database";
-      res.render('login', { title: 'Login', msg: msg });
+      let msg = "User not found in database, please register first";
+      req.session.logined = false;
+      res.render('login', { title: 'Login', msg: msg, status: req.session.logined });
     }
   });
 });
@@ -35,7 +36,8 @@ router.post('/register', (req, res, next) => {
   User.findOne(data, (err, doc) => {
     if (doc) {
       let msg = "User found in database, please login";
-      res.render('login', { title: 'Login', msg: msg });
+      req.session.logined = false;
+      res.render('register', { title: 'Login', msg: msg, status: req.session.logined });
     } else {
       const userModel = new User(data);
       userModel.save((err, doc) => {
