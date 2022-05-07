@@ -33,7 +33,7 @@ router.post('/login', (req, res, next) => {
 
 router.post('/register', (req, res, next) => {
   const data = { email: req.body.email, username: req.body.username, password: req.body.password };
-  User.findOne({email: data.email}, (err, doc) => {
+  User.findOne({ email: data.email }, (err, doc) => {
     if (doc) {
       let msg = "User found in database, please login";
       req.session.logined = false;
