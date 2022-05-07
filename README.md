@@ -2,7 +2,7 @@
 
 ## About
 
-This is an express based web application financial tracker. It allows user to record their daily spending and view summary statistics to keep track of their financial plans. It involves both frontend and backend validation on user authentication and data input. It provides a pie chart and a bar chart to display the summary statistics. Try it <a href="https://ximengli-cpa02.herokuapp.com/">here!</a>.
+This is an express based web application financial tracker. It allows user to record their daily spending and view summary statistics to keep track of their financial plans. It involves both frontend and backend validation on user authentication and data input. It provides a pie chart to show user categorized total spending and a bar chart to show user monthly total spending. Try it <a href="https://ximengli-cpa02.herokuapp.com/">here!</a>.
 
 
 ## Related skills
@@ -18,22 +18,22 @@ This is an express based web application financial tracker. It allows user to re
 ## App screenshots
 
 **Main page**
-![](D:\2022Spring\COSI 103A\financial-tracker\public\images\main.png)
+<img src="./public/images/main.png">
 
 **About page**
-![](D:\2022Spring\COSI 103A\financial-tracker\public\images\about.png)
+<img src="./public/images/about.png">
 
 **Login page**
-![](D:\2022Spring\COSI 103A\financial-tracker\public\images\login.png)
+<img src="./public/images/login.png">
 
 **Transaction histories page**
-![](D:\2022Spring\COSI 103A\financial-tracker\public\images\history.png)
+<img src="./public/images/history.png">
 
 **Add transaction page**
-![](D:\2022Spring\COSI 103A\financial-tracker\public\images\add.png)
+<img src="./public/images/add.png">
 
 **Transaction statistics page**
-![](D:\2022Spring\COSI 103A\financial-tracker\public\images\show.png)
+<img src="./public/images/show.png">
 
 
 ## How to use this app locally
@@ -45,3 +45,5 @@ This is an express based web application financial tracker. It allows user to re
 
 
 ## Demo movie link
+
+This <a href="https://drive.google.com/file/d/1l1_mkh2N9ILB23maGsO45fF2qHKOcP8x/view?usp=sharing"> link</a> shows how the app works.
